@@ -1,0 +1,44 @@
+so ~/.vim/plugins.vim
+
+let mapleader = ","
+syntax on
+colorscheme nord
+
+if has('mouse')
+  set mouse=a
+endif
+
+if !has('gui_running')
+  set t_Co=256
+endif
+
+nmap <leader>p :Files!<CR>
+nnoremap <s-tab> za
+noremap <C-H> :tabp<CR>
+noremap <C-L> :tabn<CR>
+noremap <C-J> :tabc<CR>
+noremap <C-K> :tabe<CR>
+tmap <C-H> <C-w>:tabp<CR>
+tmap <C-L> <C-w>:tabn<CR>
+tmap <C-J> <C-w><C-c>
+tmap <C-K> <C-w>:tabe<CR>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+set noshowmode
+set number
+set laststatus=2
+" Give more space for displaying messages.
+set hidden
+set signcolumn=yes
+
+"-- FOLDING --
+set foldmethod=indent
+set foldlevelstart=99
+
+" Show whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif

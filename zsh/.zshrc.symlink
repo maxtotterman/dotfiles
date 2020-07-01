@@ -1,0 +1,7 @@
+export ZSH="/Users/max/.oh-my-zsh"
+ZSH_THEME="minimal"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+source $(brew --prefix asdf)/asdf.sh
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
