@@ -1,17 +1,15 @@
 require('lualine').setup {
   options = {
-    icons_enabled = false,
     theme = 'nord',
-    component_separators = {'', '/'},
-    section_separators = {'', ''},
-    disabled_filetypes = {}  
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {},
-    lualine_x = {'fileformat','filetype'},
-    lualine_y = {},
-    lualine_z = {'location'}  
+    lualine_x = {'encoding', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {}
   },
 }
