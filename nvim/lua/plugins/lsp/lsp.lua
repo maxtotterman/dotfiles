@@ -60,3 +60,18 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
 require('lspconfig')['tsserver'].setup{
     flags = lsp_flags,
 }
+
+require('lspconfig')['rust_analyzer'].setup{
+    flags = lsp_flags,
+}
+
+require('lspconfig')['lua_ls'].setup{
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
+    }
+  }
+}
+
