@@ -5,6 +5,7 @@ local o = vim.opt                       -- options
 g.mapleader = ","
 g.loaded_netrw = 1                      -- disable netrw at the very start of your init.lua (strongly advised)
 g.loaded_netrwPlugin = 1                -- disable netrw at the very start of your init.lua (strongly advised)
+g.clipboard = 'unnamedplus'
 
 -- Backup settings
 o.backup = false                        -- This is recommended
@@ -31,7 +32,7 @@ o.signcolumn = "yes"                    -- Always show signcolumn, otherwise it 
 
 -- Better editing
 o.list = true                           -- List character
-o.listchars = 'tab:»·,trail:·,nbsp:·'   -- Format characters
+o.listchars = "tab:»·,trail:·,nbsp:·"   -- Format characters
 o.smarttab = true                       -- Makes tabbing smarter will realize you have 2 vs 4
 o.expandtab = true                      -- Converts tabs to spaces
 o.smartindent = true                    -- Makes indenting smart
@@ -52,7 +53,13 @@ o.hidden = true                         -- Required to keep multiple buffers ope
 o.encoding = 'utf-8'                    -- The encoding displayed
 o.fileencoding = 'utf-8'                -- The encoding written to file
 o.completeopt = "menu,menuone,noselect"
-o.timeoutlen = 500                      -- Decrease update time
+o.timeoutlen = 300                      -- Decrease update time
 o.updatetime = 200                      -- Decrease update time
-o.foldexpr = ""                         -- ?
 o.spell = false                         -- Disable spellchecking
+
+-- Folding
+o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+o.fillchars = "fold: "
+o.foldtext = "folded"
+o.foldmethod='expr'
+o.foldexpr="nvim_treesitter#foldexpr()"
