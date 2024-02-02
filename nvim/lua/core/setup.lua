@@ -1,5 +1,5 @@
 local vim = vim
-local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
+local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 
 -- highlight yank
 vim.cmd([[
@@ -9,13 +9,12 @@ vim.cmd([[
   augroup END
 ]])
 
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-
+-- make copy/paste work in different OS:es
 if in_wsl then
-    vim.g.clipboard = {
-        name = 'wsl clipboard',
-        copy =  { ["+"] = { "clip.exe" },   ["*"] = { "clip.exe" } },
-        paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
-        cache_enabled = false
-    }
+	vim.g.clipboard = {
+		name = "wsl clipboard",
+		copy = { ["+"] = { "clip.exe" }, ["*"] = { "clip.exe" } },
+		paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
+		cache_enabled = false,
+	}
 end
